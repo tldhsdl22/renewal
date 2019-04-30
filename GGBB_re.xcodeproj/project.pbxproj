@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3EF63D2D22708BD6003896C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D2C22708BD6003896C4 /* AppDelegate.swift */; };
-		3EF63D2F22708BD6003896C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D2E22708BD6003896C4 /* ViewController.swift */; };
-		3EF63D3222708BD6003896C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF63D3022708BD6003896C4 /* Main.storyboard */; };
+		3EF63D2F22708BD6003896C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D2E22708BD6003896C4 /* LoginViewController.swift */; };
+		3EF63D3222708BD6003896C4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF63D3022708BD6003896C4 /* Login.storyboard */; };
 		3EF63D3422708BD6003896C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EF63D3322708BD6003896C4 /* Assets.xcassets */; };
 		3EF63D3722708BD6003896C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF63D3522708BD6003896C4 /* LaunchScreen.storyboard */; };
 		3EF63D4222708BD6003896C4 /* GGBB_reTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D4122708BD6003896C4 /* GGBB_reTests.swift */; };
@@ -28,8 +28,8 @@
 /* Begin PBXFileReference section */
 		3EF63D2922708BD6003896C4 /* GGBB_re.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBB_re.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF63D2C22708BD6003896C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EF63D2E22708BD6003896C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3EF63D3122708BD6003896C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3EF63D2E22708BD6003896C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3EF63D3122708BD6003896C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		3EF63D3322708BD6003896C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EF63D3622708BD6003896C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EF63D3822708BD6003896C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,9 +77,8 @@
 		3EF63D2B22708BD6003896C4 /* GGBB_re */ = {
 			isa = PBXGroup;
 			children = (
+				3EF63D4D227093E7003896C4 /* 1_login */,
 				3EF63D2C22708BD6003896C4 /* AppDelegate.swift */,
-				3EF63D2E22708BD6003896C4 /* ViewController.swift */,
-				3EF63D3022708BD6003896C4 /* Main.storyboard */,
 				3EF63D3322708BD6003896C4 /* Assets.xcassets */,
 				3EF63D3522708BD6003896C4 /* LaunchScreen.storyboard */,
 				3EF63D3822708BD6003896C4 /* Info.plist */,
@@ -94,6 +93,15 @@
 				3EF63D4322708BD6003896C4 /* Info.plist */,
 			);
 			path = GGBB_reTests;
+			sourceTree = "<group>";
+		};
+		3EF63D4D227093E7003896C4 /* 1_login */ = {
+			isa = PBXGroup;
+			children = (
+				3EF63D3022708BD6003896C4 /* Login.storyboard */,
+				3EF63D2E22708BD6003896C4 /* LoginViewController.swift */,
+			);
+			path = 1_login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +189,7 @@
 			files = (
 				3EF63D3722708BD6003896C4 /* LaunchScreen.storyboard in Resources */,
 				3EF63D3422708BD6003896C4 /* Assets.xcassets in Resources */,
-				3EF63D3222708BD6003896C4 /* Main.storyboard in Resources */,
+				3EF63D3222708BD6003896C4 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF63D2F22708BD6003896C4 /* ViewController.swift in Sources */,
+				3EF63D2F22708BD6003896C4 /* LoginViewController.swift in Sources */,
 				3EF63D2D22708BD6003896C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,12 +231,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3EF63D3022708BD6003896C4 /* Main.storyboard */ = {
+		3EF63D3022708BD6003896C4 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3EF63D3122708BD6003896C4 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		3EF63D3522708BD6003896C4 /* LaunchScreen.storyboard */ = {
@@ -354,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UW7M6EEPV;
 				INFOPLIST_FILE = GGBB_re/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "song.GGBB-re";
@@ -368,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UW7M6EEPV;
 				INFOPLIST_FILE = GGBB_re/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "song.GGBB-re";

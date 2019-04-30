@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="GGBB_re" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-bB-Ief">
+                                <rect key="frame" x="30" y="158.5" width="315" height="370"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="We8-A3-RkX">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="70"/>
+                                        <color key="backgroundColor" red="0.3529411764705882" green="0.69019607843137254" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="HVN-g7-aKt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <state key="normal" title="네이버 로그인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTO-bw-rSa">
+                                        <rect key="frame" x="0.0" y="80" width="315" height="70"/>
+                                        <color key="backgroundColor" red="0.98039215686274506" green="0.91764705882352937" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="471-J0-NWu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <state key="normal" title="카카오톡 로그인">
+                                            <color key="titleColor" red="0.27785250211944451" green="0.012209343416666673" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJj-kI-UOJ">
+                                        <rect key="frame" x="0.0" y="160" width="315" height="70"/>
+                                        <color key="backgroundColor" red="0.29411764705882354" green="0.41176470588235292" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ufM-9F-Ols"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <state key="normal" title="페이스북 로그인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iQQ-JS-n6e">
+                                        <rect key="frame" x="0.0" y="240" width="315" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a31-4m-Bto">
+                                                <rect key="frame" x="0.0" y="24.5" width="132.5" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="Uyz-uU-kCW"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-Pm-x9p">
+                                                <rect key="frame" x="132.5" y="14.5" width="50" height="21.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="cFI-9d-1KI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY9-Ih-CUn">
+                                                <rect key="frame" x="182.5" y="24.5" width="132.5" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="a31-4m-Bto" firstAttribute="width" secondItem="cY9-Ih-CUn" secondAttribute="width" id="8ZS-KP-0Bv"/>
+                                            <constraint firstAttribute="height" constant="50" id="J08-8t-OEJ"/>
+                                            <constraint firstItem="cY9-Ih-CUn" firstAttribute="centerY" secondItem="iQQ-JS-n6e" secondAttribute="centerY" id="P7M-Nl-tlf"/>
+                                            <constraint firstItem="a31-4m-Bto" firstAttribute="centerY" secondItem="iQQ-JS-n6e" secondAttribute="centerY" id="gcd-gV-Ktc"/>
+                                            <constraint firstItem="a31-4m-Bto" firstAttribute="height" secondItem="cY9-Ih-CUn" secondAttribute="height" id="olz-jU-RHA"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25B-fz-8pX">
+                                        <rect key="frame" x="0.0" y="300" width="315" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="mL9-i4-mfa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <state key="normal" title="페이스북 로그인">
+                                            <color key="titleColor" red="0.92941176469999998" green="0.37647058820000001" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tJj-kI-UOJ" firstAttribute="leading" secondItem="bTO-bw-rSa" secondAttribute="leading" id="3FV-Rx-w1p"/>
+                                    <constraint firstAttribute="trailing" secondItem="We8-A3-RkX" secondAttribute="trailing" id="BzO-Eb-paV"/>
+                                    <constraint firstItem="bTO-bw-rSa" firstAttribute="trailing" secondItem="We8-A3-RkX" secondAttribute="trailing" id="FT8-jb-MoL"/>
+                                    <constraint firstItem="We8-A3-RkX" firstAttribute="leading" secondItem="eLK-bB-Ief" secondAttribute="leading" id="WDh-1H-z7v"/>
+                                    <constraint firstItem="tJj-kI-UOJ" firstAttribute="trailing" secondItem="bTO-bw-rSa" secondAttribute="trailing" id="Zha-wc-pwU"/>
+                                    <constraint firstItem="bTO-bw-rSa" firstAttribute="leading" secondItem="We8-A3-RkX" secondAttribute="leading" id="qJ9-2e-Rbz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eLK-bB-Ief" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="J76-rl-Y9a"/>
+                            <constraint firstItem="eLK-bB-Ief" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="SaD-VS-Jss"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eLK-bB-Ief" secondAttribute="trailing" constant="30" id="vn3-kC-b3z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="login4" destination="25B-fz-8pX" id="qHz-ic-TDO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+        </scene>
+    </scenes>
+</document>
