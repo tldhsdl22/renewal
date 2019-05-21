@@ -7,20 +7,55 @@
 //
 
 import UIKit
+import FacebookLogin
 import FBSDKLoginKit
-
+import Alamofire
 
 class LoginViewController: UIViewController {
     
     @IBOutlet var loginKaKao: UIButton!
     @IBOutlet var loginFacebook: UIButton!
     @IBOutlet var loginCustom: UIButton!
+    @IBOutlet var loginPass: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         setBorder()
+        buttonUnderLine()
+        
+        if(UserInfo.getUserName() != nil)
+        {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+            self.show(vc, sender: nil)
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    
+    private func buttonUnderLine()
+    {
+        let yourAttributes : [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.foregroundColor : UIColor.darkGray
+        ]
+
+        let attributeString = NSMutableAttributedString(string: "건너뛰기",
+                                                        attributes: yourAttributes)
+        loginPass.setAttributedTitle(attributeString, for: .normal)
+    }
+    
+
     
     private func setBorder()
     {
@@ -57,12 +92,24 @@ class LoginViewController: UIViewController {
                     })
                     //userMeTaskWithCompletion
                     KOSessionTask.userMeTask(completion: { (error, me) in
-                        if let error = error as NSError? {
+                        if let _ = error as NSError? {
                             
                         } else if let me = me as KOUserMe? {
                             print("id: \(String(describing: me.id))")
                             print("nickname: \(String(describing: me.nickname))")
                             print("imgUrl: \(String(describing: me.thumbnailImageURL))")
+                            
+                            // 유저 정보 저장
+                            UserInfo.setUserInfo(userId: me.id, name: me.nickname, thumb: me.thumbnailImageURL?.absoluteString)
+                            
+                            // 정상적인 값이면 페이지 이동
+                            if(UserInfo.getUserName() != nil)
+                            {
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+                                self.show(vc, sender: nil)
+                            }
+
                         } else {
                             print("has no id")
                         }
@@ -89,18 +136,30 @@ class LoginViewController: UIViewController {
                 
                 //  프로필 가져오기
                 Profile.loadCurrentProfile(completion: {(profile, error) in
-                    print(profile?.name)
-                    print(profile?.userID)
+                    let thumb = profile?.imageURL(forMode: .normal, size: CGSize(width: 300, height: 300))
+                    UserInfo.setUserInfo(userId: profile?.userID, name: profile?.name, thumb: thumb?.absoluteString)
                     
-                    var thumb:FBProfilePictureView = FBProfilePictureView()
-                    thumb.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-                    thumb.profileID = profile?.userID ?? ""
-                    
-                    self.view.addSubview(thumb)
-                    
+                    // 페이지 이동
+                    if(UserInfo.getUserName() != nil)
+                    {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+                        self.show(vc, sender: nil)
+                    }
                 })
             }
         }
+    }
+    
+    @IBAction func loginPass(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+        self.show(vc, sender: nil)
+    }
+    
+    
+    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue){
+        print("success logout")
     }
 }
 

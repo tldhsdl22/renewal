@@ -26,39 +26,42 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakaob31508f2c9995345c6df535263ba7ff7</string>
-                <string>fb114413382441801</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb114413382441801</string>
 			</array>
 		</dict>
 	</array>
-    <key>FacebookAppID</key>
-    <string>114413382441801</string>
-    <key>FacebookDisplayName</key>
-    <string>login</string>
-    
 	<key>CFBundleVersion</key>
 	<string>20</string>
-    
-    <!-- 앱권한 -->
+	<key>FacebookAppID</key>
+	<string>114413382441801</string>
+	<key>FacebookDisplayName</key>
+	<string>응답하라경기북부</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>b31508f2c9995345c6df535263ba7ff7</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 		<string>kakaob31508f2c9995345c6df535263ba7ff7</string>
 		<string>kakaokompassauth</string>
 		<string>storykompassauth</string>
 		<string>kakaolink</string>
-		<string>kakaotalk-4.5.0</string>
+		<string>kakaotalk-5.9.7</string>
 		<string>storylink</string>
-        
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string> 
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>daumcdn.net</key>

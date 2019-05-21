@@ -8,38 +8,51 @@
 
 import UIKit
 import XLPagerTabStrip
+import Alamofire
 
 class MainViewController: UIViewController {
     fileprivate var pagesVC: [UIViewController]!
     fileprivate var pageTabBarVC : TabBarController!
-    var titleList: [String] = ["먹자", "놀자", "자자", "하하", "케케"]
     
-    @IBOutlet var sideMenuWidth: NSLayoutConstraint!
-    @IBOutlet var sideMenuView: UIView!
-    @IBOutlet var innerView: UIView!
+    var typeList:[(key: String, value: Int)]?
+    
     @IBOutlet var navItem: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 데이터 초기화
+        let tmpList = ["먹자":10, "놀자":20, "자자":30, "쇼핑":40, "지하상가":50]
+        typeList = tmpList.sorted(by: { (aDic, bDic) -> Bool in
+            return aDic.value < bDic.value
+            })
+        print(typeList)
+        
         //setNavigationBar()
         
         preparePages()
         preparePageController()
+
         
-        /*
-        self.view.addSubview(pageTabBarVC.view)
-        
-        pageTabBarVC.view.topAnchor.constraint(equalTo: self.view.topAnchor)
-        pageTabBarVC.view.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-        pageTabBarVC.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-        pageTabBarVC.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        */
-        self.edgesForExtendedLayout = []//Optional our as per your view ladder
- 
+        // 탭바 뷰
         let newView = pageTabBarVC.view!
         newView.backgroundColor = .red
         self.view.addSubview(newView)
+        setAnchorToSafeArea(newView)
+        self.addChild(pageTabBarVC)
+        
+        // 사이드 메뉴 앞으로 보이게 하기
+        //self.view.bringSubviewToFront(sideMenuView)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadViewIfNeeded()
+    }
+
+    
+    private func setAnchorToSafeArea(_ newView:UIView)
+    {
         newView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
             let guide = self.view.safeAreaLayoutGuide
@@ -72,9 +85,6 @@ class MainViewController: UIViewController {
                                multiplier: 1.0,
                                constant: 0).isActive = true
         }
-        
-        self.view.layoutIfNeeded()
-        self.view.bringSubviewToFront(sideMenuView)
     }
     
     public func setNavigationBar()
@@ -89,27 +99,17 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func clickButton01(_ sender: Any) {
-        sideMenuWidth.constant = 0
-    }
-    
-    @IBAction func clickButton02(_ sender: Any) {
-        sideMenuWidth.constant = 0
-    }
-    
-    @IBAction func showMainPage(_ sender: Any) {
-        if(sideMenuWidth.constant > 0)
-        {
-            sideMenuWidth.constant = 0
-        }
-        else
-        {
-            sideMenuWidth.constant = 200
-        }
+    @IBAction func showSlideMenu(_ sender: Any) {
+        //let vc = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuViewController") as? SideMenuViewController
+        //vc?.modalPresentationStyle = .overCurrentContext
+        //vc?.modalTransitionStyle = UIModalTransitionStyle.
+//        vc?.modalPresentationStyle = .currentContext
+        //vc.modalPresentationStyle = .currentContext
+        //vc?.modalPresentationStyle = .overFullScreen
+
         
-        UIView.animate(withDuration: 0.2, delay:0, animations: {
-                self.view.layoutIfNeeded()
-            })
+
+        //self.present(vc!, animated: false, completion: nil)
     }
 }
 
@@ -117,15 +117,16 @@ class MainViewController: UIViewController {
 extension MainViewController {
     fileprivate func preparePages() {
         pagesVC = [UIViewController]()
-        for title in titleList
+        for type in typeList!
         {
-            let newPage = createStoreThumbViewController(title:title)
+            let newPage = createStoreThumbViewController(title:type.0, type:type.1)
             pagesVC.append(newPage)
         }
     }
     
-    fileprivate func createStoreThumbViewController(title:String) -> UIViewController{
+    fileprivate func createStoreThumbViewController(title:String, type:Int) -> UIViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StoreThumbViewController") as! StoreThumbViewController
+        vc.storeType = type
         vc.itemInfo = IndicatorInfo(title:title)
         return vc
     }

@@ -6,4 +6,8 @@ target 'GGBB_re' do
     pod 'Material'
     pod 'FacebookCore'
     pod 'FacebookLogin'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+
+    
 end

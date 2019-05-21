@@ -7,34 +7,65 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
-public class StoreThumb
+
+public class StoreThumb:Codable
 {
-    public var imgSrc:String = ""
-    public var distance:String = ""
-    public var storeName:String = ""
-    public var viewCnt:Int = 0
-    public var reviewCnt:Int = 0
-    public var likeCnt:Int = 0
-    
-    
-    public static func getTestData() -> [StoreThumb]
-    {
-        var storeList:[StoreThumb] = []
-        
-        for num in 1...100
-        {
-            var item = StoreThumb()
-            item.imgSrc = "test"
-            item.distance = "test"
-            item.storeName = "test"
-            item.viewCnt = 100 * num
-            item.reviewCnt = 222 * num
-            item.likeCnt = 333 * num
-            
-            storeList.append(item)
-        }
-        
-        return storeList
-    }
+    var addr:String
+    var coupon:String
+    var date:String
+    var detailShort:String
+    var editor:String
+    var gpsx:String
+    var gpsy:String
+    var holiday:String
+    var intro:String
+    var is19:String
+    var isBeadal:String
+    var isHide:String
+    var isHot:String
+    var isLoadMap:String
+    var isNew:String
+    var isRec:String
+    var kind:String
+    var location:String
+    var name:String
+    var num:String
+    var open:String
+    var parking:String
+    var recommend:String
+    var review:String
+    var scrap:String
+    var tel:String
+    var thumbnail:String
+    var type:String
+    var view:String
+}
+
+class JSONResponse: Codable
+{
+    var result: Bool
+    var msg: String
+}
+
+class ResultSign: Codable
+{
+    var result: String?
+    var kakaoID: String?
+    var message: String?
+}
+
+
+class ResultLogin: Codable
+{
+    var result: String?
+    var message: String?
+    var kakaoID: String?
+    var userName: String?
+    var thumbnail: String?
+    var age: String?
+    var location: String?
+    var gender: String?
 }

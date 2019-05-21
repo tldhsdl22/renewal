@@ -2,4 +2,146 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GGBB_re/2_main/OptionFilterViewController.swift"
+            timestampString = "580033790.864695"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "OptionFilterViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.filterTablewView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.957623"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.filterTablewView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.961091"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.filterTablewView.modify : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.9641531"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.filterTablewView.modify : Swift.Optional&lt;__C.UITableView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.969313"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; GGBB_re.OptionFilterViewController"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.973472"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "217">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GGBB_re.OptionFilterViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;GGBB_re.OptionFilterViewController&gt;"
+                  moduleName = "GGBB_re"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/songsion/Documents/project/GGBB_re/GGBB_re/2_main/OptionFilterViewController.swift"
+                  timestampString = "579239870.977083"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GGBB_re/2_main/SideMenuViewController.swift"
+            timestampString = "580033790.864826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "addViewClickAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GGBB_re/3_storeInfo/BlogPageViewController.swift"
+            timestampString = "579599647.433612"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "BlogPageViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

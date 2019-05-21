@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - FacebookCore (0.7.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.7.0):
@@ -20,33 +21,40 @@ PODS:
   - Motion (1.4.3):
     - Motion/Core (= 1.4.3)
   - Motion/Core (1.4.3)
+  - SwiftyJSON (5.0.0)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - FacebookCore
   - FacebookLogin
   - Material
+  - SwiftyJSON
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Material
     - Motion
+    - SwiftyJSON
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
   FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
   FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
   FBSDKLoginKit: c6d0dc187bd076e370dffa10f7fc8a3562a6892c
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 2fc2baba415c99191b039dce1faae36f8741abf9
+PODFILE CHECKSUM: bbfd693acd856676a37ecad6c78755c4df5ac726
 
 COCOAPODS: 1.7.0.beta.3

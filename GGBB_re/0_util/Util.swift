@@ -11,9 +11,8 @@ import UIKit
 
 public class Util
 {
-    public static var ColorMint:UIColor {
-        let mint = UIColor(red: 138/255, green: 214/255, blue: 201/255, alpha: 1.0)
-        return mint
+    public static var AppColor:UIColor {
+        return UIColor(red: 237/255, green: 96/255, blue: 76/255, alpha: 1)
     }
     public static var ColorOrange:UIColor {
         let orange = UIColor(red: 243/255, green: 143/255, blue: 89/255, alpha: 1.0)
@@ -27,4 +26,53 @@ public class Util
         let blue = UIColor(red: 140/255, green: 205/255, blue: 255/255, alpha: 1.0)
         return blue
     }
+    
+    
+    public static func setButtonImage(btn:UIButton, width:Int, height:Int){
+        let imgSize = CGSize(width: width + 8, height: height)
+        UIGraphicsBeginImageContext(imgSize)
+        
+        var thumbnailRect = CGRect.zero
+        thumbnailRect.origin = CGPoint(x: 0, y: 0)
+        thumbnailRect.size.width = CGFloat(width)
+        thumbnailRect.size.height = CGFloat(height)
+        
+        var img = btn.imageView?.image
+        img?.draw(in: thumbnailRect)
+        btn.setImage(img, for: UIControl.State.normal)
+        
+        let sizeImg = UIGraphicsGetImageFromCurrentImageContext()
+        btn.setImage(sizeImg, for: UIControl.State.normal)
+        UIGraphicsEndImageContext()
+        btn.contentVerticalAlignment = .center
+        btn.contentMode = .center
+    }
 }
+
+
+let imageCache = NSCache<AnyObject, AnyObject>()
+
+extension UIImageView {
+    func cacheImage(urlString: String){
+        let url = URL(string: urlString)
+        
+        image = nil
+        
+        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            self.image = imageFromCache
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url!) {
+            data, response, error in
+            if let response = data {
+                DispatchQueue.main.async {
+                    let imageToCache = UIImage(data: data!)
+                    imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+                    self.image = imageToCache
+                }
+            }
+            }.resume()
+    }
+}
+
