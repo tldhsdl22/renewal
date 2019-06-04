@@ -12,5 +12,6 @@ class OptionFilterAreaCell: UICollectionViewCell
 {
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var backView: UIView!
     
 }

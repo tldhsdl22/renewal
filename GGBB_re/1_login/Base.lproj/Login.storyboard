@@ -253,7 +253,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="U1x-XR-pIa" id="QFC-AP-xfb"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZo-KW-mQh">
                                         <rect key="frame" x="0.0" y="60" width="275" height="50"/>
@@ -262,7 +265,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="join" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="U1x-XR-pIa" id="eS5-bc-2J4"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi7-Ku-VHy">
                                         <rect key="frame" x="0.0" y="120" width="275" height="70"/>
@@ -314,8 +320,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uKj-0A-keE" firstAttribute="centerY" secondItem="A6I-ai-gd1" secondAttribute="centerY" id="4MX-dn-94c"/>
                             <constraint firstItem="uKj-0A-keE" firstAttribute="leading" secondItem="VqY-dD-yKZ" secondAttribute="leading" constant="50" id="F6D-yh-Rly"/>
+                            <constraint firstItem="uKj-0A-keE" firstAttribute="centerY" secondItem="A6I-ai-gd1" secondAttribute="centerY" id="dSu-CX-cre"/>
                             <constraint firstItem="VqY-dD-yKZ" firstAttribute="trailing" secondItem="uKj-0A-keE" secondAttribute="trailing" constant="50" id="fV6-iI-RZo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VqY-dD-yKZ"/>
@@ -356,18 +362,6 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력하세요(6~15자, 영문, 숫자)" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hzi-ET-m2E">
-                                                        <rect key="frame" x="10" y="55" width="355" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="tmM-VY-J11"/>
-                                                        </constraints>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="username"/>
-                                                        <connections>
-                                                            <action selector="idChanged:" destination="U8C-NZ-Ael" eventType="editingChanged" id="fl1-CM-ZgS"/>
-                                                        </connections>
-                                                    </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-sN-Ajb">
                                                         <rect key="frame" x="10" y="115" width="355" height="50"/>
                                                         <color key="backgroundColor" red="0.16303208470344543" green="0.18181464076042175" blue="0.26402071118354797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -388,6 +382,19 @@
                                                         <color key="textColor" red="0.42523267638259732" green="0.42523267638259732" blue="0.42523267638259732" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력하세요(6~15자, 영문, 숫자)" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hzi-ET-m2E">
+                                                        <rect key="frame" x="10" y="55" width="355" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="tmM-VY-J11"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="username"/>
+                                                        <connections>
+                                                            <action selector="idChanged:" destination="U8C-NZ-Ael" eventType="editingChanged" id="fl1-CM-ZgS"/>
+                                                            <outlet property="delegate" destination="U8C-NZ-Ael" id="Ke5-up-69c"/>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -424,9 +431,10 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
                                                             <action selector="inputPass1:" destination="U8C-NZ-Ael" eventType="editingDidEnd" id="Gwx-xF-IVA"/>
+                                                            <outlet property="delegate" destination="U8C-NZ-Ael" id="J0D-U1-egz"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -459,9 +467,10 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
                                                             <action selector="inputPass2:" destination="U8C-NZ-Ael" eventType="editingDidEnd" id="5LG-gQ-URl"/>
+                                                            <outlet property="delegate" destination="U8C-NZ-Ael" id="D7v-Ti-IQP"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -494,7 +503,10 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="U8C-NZ-Ael" id="bQT-sD-ePI"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -510,18 +522,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tf-fi-YIa">
                                                 <rect key="frame" x="0.0" y="513" width="375" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ksu-7B-hYA" customClass="ImageButton" customModule="GGBB_re" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Ksu-7B-hYA" customClass="ImageButton" customModule="GGBB_re" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="355" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="PjK-Vz-sfW"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <state key="normal" title="서비스 이용 약관 동의">
                                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="image" keyPath="leftHandImage" value="36_extra_grey_1x"/>
-                                                            <userDefinedRuntimeAttribute type="image" keyPath="rightHandImage" value="36_extra_grey_1x"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="leftHandImage" value="36_unchecked_1x"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderHandColor">
                                                                 <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             </userDefinedRuntimeAttribute>
@@ -542,18 +552,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt1-0F-aCC">
                                                 <rect key="frame" x="0.0" y="573" width="375" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-WM-JhD" customClass="ImageButton" customModule="GGBB_re" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-WM-JhD" customClass="ImageButton" customModule="GGBB_re" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="355" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Rhg-OB-zmj"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <state key="normal" title="개인정보수집 및 이용에 관한 동의">
                                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="image" keyPath="leftHandImage" value="36_extra_grey_1x"/>
-                                                            <userDefinedRuntimeAttribute type="image" keyPath="rightHandImage" value="36_extra_grey_1x"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="leftHandImage" value="36_unchecked_1x"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderHandColor">
                                                                 <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             </userDefinedRuntimeAttribute>
@@ -637,6 +645,7 @@
                         <outlet property="inputPw1" destination="qAV-uc-6YZ" id="l19-vT-t1m"/>
                         <outlet property="inputPw2" destination="BeB-pc-dvu" id="4E0-d5-Qw0"/>
                         <outlet property="labelIdCheck" destination="q7P-Ai-8Tz" id="Gvq-4a-1RV"/>
+                        <outlet property="myScrollView" destination="O1F-H2-qhd" id="E8S-rb-feU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Efc-un-ouC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -694,6 +703,6 @@
     <resources>
         <image name="02_facebook_1x" width="20" height="20"/>
         <image name="02_kakao_1x" width="20" height="20"/>
-        <image name="36_extra_grey_1x" width="30" height="30"/>
+        <image name="36_unchecked_1x" width="20.5" height="20.5"/>
     </resources>
 </document>

@@ -11,5 +11,7 @@ import UIKit
 class OptionFilterFoodTypeCell: UICollectionViewCell
 {
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var backView: UIView!
     
 }

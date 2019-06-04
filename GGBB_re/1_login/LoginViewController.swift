@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -42,7 +43,6 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
-    
     private func buttonUnderLine()
     {
         let yourAttributes : [NSAttributedString.Key: Any] = [
@@ -55,8 +55,6 @@ class LoginViewController: UIViewController {
         loginPass.setAttributedTitle(attributeString, for: .normal)
     }
     
-
-    
     private func setBorder()
     {
         loginKaKao.layer.cornerRadius = 5
@@ -65,7 +63,6 @@ class LoginViewController: UIViewController {
         loginCustom.layer.borderWidth = 1.0
         loginCustom.layer.borderColor = UIColor.lightGray.cgColor
         loginCustom.layer.cornerRadius = 5
-
         
         //login4.layer.addBorder([.top, .bottom, .left, .right], color: UIColor.gray, width: 1.0, radius: 10)
     }
@@ -162,6 +159,8 @@ class LoginViewController: UIViewController {
         print("success logout")
     }
 }
+
+
 
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat, radius: CGFloat) {

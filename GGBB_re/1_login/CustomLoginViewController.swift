@@ -16,7 +16,42 @@ class CustomLoginViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        orgHeight = self.view.frame.height
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:
+            UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    var orgHeight:CGFloat = 0
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            self.view.layoutIfNeeded()
+            self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.orgHeight - keyboardSize.height)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.layoutIfNeeded()
+        self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.orgHeight)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     
     @IBAction func login(_ sender: Any) {
         var params = Dictionary<String, Any>()
@@ -69,4 +104,34 @@ class CustomLoginViewController: UIViewController
         })
         
     }
+}
+
+
+extension CustomLoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if(textField == inputId)
+        {
+            inputPw.becomeFirstResponder()
+            //inputPw.isFocused = true
+        }
+        else
+        {
+            textField.resignFirstResponder()
+            login(self)
+        }
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textFieldDidBeginEditing")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("textFieldShouldBeginEditing")
+        return true
+    }
+    
 }

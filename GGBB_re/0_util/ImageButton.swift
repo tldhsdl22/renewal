@@ -31,12 +31,12 @@ class ImageButton: UIButton {
 
     
     func setupImages() {
-        
+        let margin:CGFloat = 10
         if let leftImage = leftHandImage {
             let leftImageView = UIImageView(image: leftImage)
-            let height = self.frame.height * 0.8
+            let height = self.frame.height * 0.6
             let width = height
-            let xPos = self.frame.width - self.frame.width
+            let xPos = self.frame.width - self.frame.width + margin
             let yPos = (self.frame.height - height) / 2
             
             leftImageView.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
@@ -47,9 +47,9 @@ class ImageButton: UIButton {
             let rightImageView = UIImageView(image: rightImage)
             //rightImageView.tintColor = COLOR_BLUE
             
-            let height = self.frame.height * 0.8
-            let width = height
-            let xPos = self.frame.width - width
+            let height = self.frame.height * 0.6
+            let width = height * 0.25
+            let xPos = self.frame.width - width - margin
             let yPos = (self.frame.height - height) / 2
 
             rightImageView.frame = CGRect(x: xPos, y: yPos, width: width, height: height)

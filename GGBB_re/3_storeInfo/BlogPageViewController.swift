@@ -15,6 +15,7 @@ class BlogPageViewController: UIViewController
     public var itemInfo = IndicatorInfo(title: "")
 
     var webView: WKWebView!
+    var query: String?
     
     override func viewDidLoad()
     {
@@ -24,15 +25,12 @@ class BlogPageViewController: UIViewController
         self.view.addSubview(webView)
         setAnchorToSafeArea(webView)
         
-        /*
-        let myBlog = "https://m.naver.com"
-        let url = URL(string: myBlog)
-        let request = URLRequest(url: url!)
+        let encodedQuery =
+            query?.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? ""
         
-        webView.load(request)*/
-        
-        
-        loadUrl("http://iloveggbb.com/")
+        var blogUrl =  "https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query=" + encodedQuery
+
+        loadUrl(blogUrl ?? "https://m.search.naver.com/")
     }
     
     func loadUrl(_ addr:String)
@@ -79,7 +77,6 @@ class BlogPageViewController: UIViewController
                                constant: 0).isActive = true
         }
     }
-
 }
 
 extension BlogPageViewController: IndicatorInfoProvider  {

@@ -16,13 +16,35 @@ class StoreThumbCollectionViewCell: UICollectionViewCell {
     @IBOutlet var viewLabel: UILabel!
     @IBOutlet var reviewLabel: UILabel!
     @IBOutlet var likeLabel: UILabel!
+    @IBOutlet var isLikeImage: UIImageView!
     
     var data:StoreThumb {
         get {
             return data
         }
         set(newVal){
-            self.distanceLabel.text = newVal.gpsx
+            var areaName = ""
+            switch(newVal.location)
+            {
+            case "201":
+                areaName = "의정부"
+                break
+            case "202":
+                areaName = "동두천"
+                break
+            case "203":
+                areaName = "양주"
+                break
+            case "204":
+                areaName = "포천"
+                break
+            case "205":
+                areaName = "노원"
+                break
+            default:
+                break
+            }
+            self.distanceLabel.text = areaName
             self.storeNameLabel.text = newVal.name
             
             var strViewCnt = newVal.view
@@ -48,25 +70,18 @@ class StoreThumbCollectionViewCell: UICollectionViewCell {
             self.reviewLabel.text = strReviewCnt
             self.likeLabel.text = strRecommendCnt
             //imageView.image = UIImage(named: "cm_image_white")
-            imageView.image = UIImage(named: "40_hotel_grey_1x")
+            imageView.image = UIImage(named: "no_img")
             
             imageView.cacheImage(urlString: newVal.thumbnail)
-            /*
-            let url = URL(string: newVal.thumbnail)
-
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data!)
-                }
-            }).resume()       */
             
-            
+            if(newVal.isRec == "0")
+            {
+                isLikeImage.image = UIImage(named: "good")
+            }
+            else
+            {
+                isLikeImage.image = UIImage(named: "good_on")
+            }
         }
     }
 }

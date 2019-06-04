@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E187B1B2293BFC0002D1F90 /* GMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E187B1A2293BFC0002D1F90 /* GMap.storyboard */; };
+		3E187B1D2293BFE2002D1F90 /* GmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E187B1C2293BFE2002D1F90 /* GmapViewController.swift */; };
+		3E238E9B229F7B86008E89E4 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E238E9A229F7B86008E89E4 /* RequestViewController.swift */; };
 		3E37570F228D057B00DF4069 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E37570E228D057B00DF4069 /* Protocol.swift */; };
 		3E375711228D47FB00DF4069 /* CustomLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E375710228D47FB00DF4069 /* CustomLoginViewController.swift */; };
 		3E4AC8C722840F7800D06088 /* OptionDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AC8C622840F7800D06088 /* OptionDistanceViewController.swift */; };
@@ -24,6 +27,10 @@
 		3EABEB632279AD4E0043BF0E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABEB622279AD4E0043BF0E /* MainViewController.swift */; };
 		3EABEB652279AD850043BF0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EABEB642279AD850043BF0E /* Main.storyboard */; };
 		3EB3D147228A779000F3EE1F /* StoreInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3D146228A779000F3EE1F /* StoreInfoPageViewController.swift */; };
+		3EDCA29C229BA43E00C134EC /* GMapDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCA29B229BA43E00C134EC /* GMapDistanceViewController.swift */; };
+		3EDCA29E229BBDD400C134EC /* StoreInfoGmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCA29D229BBDD400C134EC /* StoreInfoGmapViewController.swift */; };
+		3EDCA2A0229D0FCF00C134EC /* SearchStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCA29F229D0FCF00C134EC /* SearchStoreViewController.swift */; };
+		3EDCA2A2229D26F800C134EC /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDCA2A1229D26F800C134EC /* ScrapViewController.swift */; };
 		3EE1ACBA228950C9005E0AB5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1ACB9228950C9005E0AB5 /* SideMenuViewController.swift */; };
 		3EF63D2D22708BD6003896C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D2C22708BD6003896C4 /* AppDelegate.swift */; };
 		3EF63D2F22708BD6003896C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF63D2E22708BD6003896C4 /* LoginViewController.swift */; };
@@ -44,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E187B1A2293BFC0002D1F90 /* GMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GMap.storyboard; sourceTree = "<group>"; };
+		3E187B1C2293BFE2002D1F90 /* GmapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GmapViewController.swift; sourceTree = "<group>"; };
+		3E238E9A229F7B86008E89E4 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		3E37570E228D057B00DF4069 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		3E375710228D47FB00DF4069 /* CustomLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoginViewController.swift; sourceTree = "<group>"; };
 		3E4AC8C622840F7800D06088 /* OptionDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionDistanceViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +72,10 @@
 		3EABEB622279AD4E0043BF0E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3EABEB642279AD850043BF0E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3EB3D146228A779000F3EE1F /* StoreInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoPageViewController.swift; sourceTree = "<group>"; };
+		3EDCA29B229BA43E00C134EC /* GMapDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapDistanceViewController.swift; sourceTree = "<group>"; };
+		3EDCA29D229BBDD400C134EC /* StoreInfoGmapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoGmapViewController.swift; sourceTree = "<group>"; };
+		3EDCA29F229D0FCF00C134EC /* SearchStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStoreViewController.swift; sourceTree = "<group>"; };
+		3EDCA2A1229D26F800C134EC /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		3EE1ACB9228950C9005E0AB5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		3EF63D2922708BD6003896C4 /* GGBB_re.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBB_re.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF63D2C22708BD6003896C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +114,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E187B192293BF98002D1F90 /* 10_gmap */ = {
+			isa = PBXGroup;
+			children = (
+				3E187B1A2293BFC0002D1F90 /* GMap.storyboard */,
+				3E187B1C2293BFE2002D1F90 /* GmapViewController.swift */,
+				3EDCA29B229BA43E00C134EC /* GMapDistanceViewController.swift */,
+			);
+			path = 10_gmap;
+			sourceTree = "<group>";
+		};
 		3E81FB5E2281669D00A7D148 /* 3_storeInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +133,7 @@
 				3EFC2CDE228BA0C4002425A0 /* PricePageViewController.swift */,
 				3EFC2CE0228BA4B7002425A0 /* BlogPageViewController.swift */,
 				3EFC2CE2228BAFDC002425A0 /* StoreReviewViewController.swift */,
+				3EDCA29D229BBDD400C134EC /* StoreInfoGmapViewController.swift */,
 			);
 			path = 3_storeInfo;
 			sourceTree = "<group>";
@@ -128,6 +153,9 @@
 				3E4AC8CA228505E000D06088 /* OptionFilterTableCell.swift */,
 				3E4AC8CC22851B0200D06088 /* OptionFilterFoodTypeCell.swift */,
 				3E4AC8CE228531D100D06088 /* OptionFilterAreaCell.swift */,
+				3EDCA29F229D0FCF00C134EC /* SearchStoreViewController.swift */,
+				3EDCA2A1229D26F800C134EC /* ScrapViewController.swift */,
+				3E238E9A229F7B86008E89E4 /* RequestViewController.swift */,
 			);
 			path = 2_main;
 			sourceTree = "<group>";
@@ -158,6 +186,7 @@
 				3EF63D4D227093E7003896C4 /* 1_login */,
 				3EABEB612279AD2A0043BF0E /* 2_main */,
 				3E81FB5E2281669D00A7D148 /* 3_storeInfo */,
+				3E187B192293BF98002D1F90 /* 10_gmap */,
 				3EF63D3322708BD6003896C4 /* Assets.xcassets */,
 				3EF63D2C22708BD6003896C4 /* AppDelegate.swift */,
 				3EF63D3522708BD6003896C4 /* LaunchScreen.storyboard */,
@@ -231,6 +260,7 @@
 				3EF63D2622708BD6003896C4 /* Frameworks */,
 				3EF63D2722708BD6003896C4 /* Resources */,
 				076750623DD2DF65EA90A6CC /* [CP] Embed Pods Frameworks */,
+				531CC9A583EDB782EB7674D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,6 +313,7 @@
 				3EF63D3722708BD6003896C4 /* LaunchScreen.storyboard in Resources */,
 				3EF63D3422708BD6003896C4 /* Assets.xcassets in Resources */,
 				3EF63D3222708BD6003896C4 /* Login.storyboard in Resources */,
+				3E187B1B2293BFC0002D1F90 /* GMap.storyboard in Resources */,
 				3E81FB62228167B700A7D148 /* StoreInfo.storyboard in Resources */,
 				3EABEB652279AD850043BF0E /* Main.storyboard in Resources */,
 			);
@@ -325,6 +356,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GGBB_re/Pods-GGBB_re-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		531CC9A583EDB782EB7674D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GGBB_re/Pods-GGBB_re-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GGBB_re/Pods-GGBB_re-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A3CD7D2E17976C30A3C76618 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,17 +404,22 @@
 				3E375711228D47FB00DF4069 /* CustomLoginViewController.swift in Sources */,
 				3EFC2CE3228BAFDC002425A0 /* StoreReviewViewController.swift in Sources */,
 				3E37570F228D057B00DF4069 /* Protocol.swift in Sources */,
+				3EDCA2A0229D0FCF00C134EC /* SearchStoreViewController.swift in Sources */,
 				3EABEB632279AD4E0043BF0E /* MainViewController.swift in Sources */,
 				3E81FB5B22813C6000A7D148 /* StoreThumbCollectionViewCell.swift in Sources */,
 				3E4AC8CD22851B0200D06088 /* OptionFilterFoodTypeCell.swift in Sources */,
 				3E5F22E4228406B0000B5B70 /* OptionAreaViewController.swift in Sources */,
+				3E238E9B229F7B86008E89E4 /* RequestViewController.swift in Sources */,
 				3E4AC8D12285549900D06088 /* UserInfo.swift in Sources */,
 				3E4AC8C722840F7800D06088 /* OptionDistanceViewController.swift in Sources */,
 				3EF63D2F22708BD6003896C4 /* LoginViewController.swift in Sources */,
 				3EB3D147228A779000F3EE1F /* StoreInfoPageViewController.swift in Sources */,
+				3EDCA2A2229D26F800C134EC /* ScrapViewController.swift in Sources */,
+				3E187B1D2293BFE2002D1F90 /* GmapViewController.swift in Sources */,
 				3EFC2CE9228BE8AC002425A0 /* Terms2ViewController.swift in Sources */,
 				3EFFCE19227BE44400403935 /* StoreThumbViewController.swift in Sources */,
 				3EFFCE17227BDF2400403935 /* Util.swift in Sources */,
+				3EDCA29C229BA43E00C134EC /* GMapDistanceViewController.swift in Sources */,
 				3E4AC8C92285045F00D06088 /* OptionFilterViewController.swift in Sources */,
 				3EFC2CDF228BA0C4002425A0 /* PricePageViewController.swift in Sources */,
 				3EFC2CE7228BE7A5002425A0 /* Terms1ViewController.swift in Sources */,
@@ -375,6 +431,7 @@
 				3E4AC8CB228505E000D06088 /* OptionFilterTableCell.swift in Sources */,
 				3E4AC8CF228531D100D06088 /* OptionFilterAreaCell.swift in Sources */,
 				3EFC2CEB228C043B002425A0 /* SignViewController.swift in Sources */,
+				3EDCA29E229BBDD400C134EC /* StoreInfoGmapViewController.swift in Sources */,
 				3EFFCE14227BDEAE00403935 /* TabBarViewController.swift in Sources */,
 				3EF63D2D22708BD6003896C4 /* AppDelegate.swift in Sources */,
 			);

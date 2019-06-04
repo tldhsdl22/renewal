@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     fileprivate var pageTabBarVC : TabBarController!
     
     var typeList:[(key: String, value: Int)]?
+    var categories:[String:[String]] = [:]
     
     @IBOutlet var navItem: UINavigationItem!
     
@@ -22,10 +23,17 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         // 데이터 초기화
-        let tmpList = ["먹자":10, "놀자":20, "자자":30, "쇼핑":40, "지하상가":50]
+        var tmpList = ["먹자":10, "놀자":20, "자자":30, "쇼핑":40, "지하상가":50]
         typeList = tmpList.sorted(by: { (aDic, bDic) -> Bool in
             return aDic.value < bDic.value
             })
+        
+        //먹자 - 전체, 한식, 일식, 중식, 양식, 카페, 주점, 기타
+        //자자 - 호텔, 모텔, 펜션
+
+        categories["먹자"] = ["전체", "한식", "일식",  "중식", "양식", "카페", "주점", "기타"]
+        categories["자자"] = ["전체", "호텔", "모텔", "펜션"]
+        
         print(typeList)
         
         //setNavigationBar()
@@ -111,6 +119,13 @@ class MainViewController: UIViewController {
 
         //self.present(vc!, animated: false, completion: nil)
     }
+    
+    @IBAction func goGMapVC(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "GMap", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "GmapViewController")
+        self.show(vc, sender: self)
+    }
+    
 }
 
 // MainVC TabBar Setting
@@ -119,15 +134,16 @@ extension MainViewController {
         pagesVC = [UIViewController]()
         for type in typeList!
         {
-            let newPage = createStoreThumbViewController(title:type.0, type:type.1)
+            let newPage = createStoreThumbViewController(title:type.0, type:type.1, categories: categories[type.0])
             pagesVC.append(newPage)
         }
     }
     
-    fileprivate func createStoreThumbViewController(title:String, type:Int) -> UIViewController{
+    fileprivate func createStoreThumbViewController(title:String, type:Int, categories:[String]?) -> UIViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StoreThumbViewController") as! StoreThumbViewController
         vc.storeType = type
         vc.itemInfo = IndicatorInfo(title:title)
+        vc.categoryList = categories
         return vc
     }
     

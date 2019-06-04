@@ -15,6 +15,8 @@ class SideMenuViewController: UIViewController
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var btnLogin: UIButton!
+    @IBOutlet var scrapView: UIView!
+    @IBOutlet var requestView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +28,58 @@ class SideMenuViewController: UIViewController
         addViewClickAction()
         
         loadProfile()
+        
+        attachClickEvent()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         slideAnimate()
+    }
+    
+    private func attachClickEvent()
+    {
+        // 스크랩 이동
+        let scrap_gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goScrap))
+        scrap_gesture.numberOfTapsRequired = 1
+        scrapView?.isUserInteractionEnabled = true
+        scrapView?.addGestureRecognizer(scrap_gesture)
+        
+        
+        // 문의하기 이동
+        let request_gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goRequest))
+        request_gesture.numberOfTapsRequired = 1
+        requestView?.isUserInteractionEnabled = true
+        requestView?.addGestureRecognizer(request_gesture)
+    }
+    
+    @objc private func goScrap()
+    {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScrapViewController") as? ScrapViewController
+        {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (result) in
+                self.presentingViewController?.show(vc, sender: self.presentingViewController)
+                self.leftAnchor.constant = -self.sideMenuWidth.constant
+                
+                self.dismiss(animated: false, completion: nil)
+            })
+        }
+    }
+    
+    @objc private func goRequest()
+    {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequestViewController") as? RequestViewController
+        {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (result) in
+                self.presentingViewController?.show(vc, sender: self.presentingViewController)
+                self.leftAnchor.constant = -self.sideMenuWidth.constant
+                
+                self.dismiss(animated: false, completion: nil)
+            })
+        }
     }
     
     private func loadProfile()
@@ -74,6 +124,18 @@ class SideMenuViewController: UIViewController
         })
     }
     
+    private func dismissCustom()
+    {
+        leftAnchor.constant = -sideMenuWidth.constant
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { (result) in
+            self.dismiss(animated: false, completion: nil)
+        })
+
+    }
+    
     // 여백 공간 누르면 닫히기
     @IBOutlet var emptyArea: UIView!
     func addViewClickAction()
@@ -83,28 +145,20 @@ class SideMenuViewController: UIViewController
     }
 
     @objc func checkAction(sender : UITapGestureRecognizer) {
-        leftAnchor.constant = -sideMenuWidth.constant
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: { (result) in
-            self.dismiss(animated: false, completion: nil)
-            })
+        dismissCustom()
     }
     
     @IBAction func clickCloseBtn(_ sender: Any) {
-        leftAnchor.constant = -sideMenuWidth.constant
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: { (result) in
-            self.dismiss(animated: false, completion: nil)
-        })
+        dismissCustom()
     }
     
     @IBAction func logout(_ sender: Any) {
         UserInfo.clearUserInfo()
         
         self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+    }
+    
+    @IBAction func clickMainBtn(_ sender: Any) {
+        dismissCustom()
     }
 }

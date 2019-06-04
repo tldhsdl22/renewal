@@ -8,15 +8,19 @@
 
 import UIKit
 import XLPagerTabStrip
+import Alamofire
 
 class StoreInfoViewController:UIViewController
 {
     fileprivate var pagesVC: [UIViewController]!
     fileprivate var pageTabBarVC : TabBarController!
     var titleList: [String] = ["정보", "가격", "블로그"]
-
-    @IBOutlet var bottomMenuLineView: UIView!
+    var storeTitle = ""
+    var storeNum = ""
+    var storeType = ""
+    var storeLocation = ""
     
+    var orgHeight:CGFloat = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +33,35 @@ class StoreInfoViewController:UIViewController
         self.view.addSubview(newView)
         setAnchorToSafeArea(newView)
         self.addChild(pageTabBarVC)
+        
+        // 네비게이션 셋팅
+        self.title = self.storeTitle
+        
+        self.orgHeight = self.view.frame.height
+        orgHeight = self.view.frame.height
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:
+            UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)        
+    }
+    
+    
+    @objc func endEditing()
+    {
+        self.view.endEditing(true)
+    }
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: orgHeight - keyboardSize.height)
+            
+            loadViewIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: orgHeight)
+        loadViewIfNeeded()
     }
 }
 
@@ -63,6 +96,9 @@ extension StoreInfoViewController {
     fileprivate func createStoreInfoPage(title:String) -> UIViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StoreInfoPageViewController") as! StoreInfoPageViewController
         vc.itemInfo = IndicatorInfo(title:title)
+        vc.storeNum = self.storeNum
+        vc.storeType = self.storeType
+        
         return vc
     }
     
@@ -70,6 +106,8 @@ extension StoreInfoViewController {
     fileprivate func createPricePage(title:String) -> UIViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PricePageViewController") as! PricePageViewController
         vc.itemInfo = IndicatorInfo(title:title)
+        vc.num = self.storeNum
+        vc.type = self.storeType
         return vc
     }
     
@@ -78,6 +116,31 @@ extension StoreInfoViewController {
     fileprivate func createBlogPage(title:String) -> UIViewController{
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BlogPageViewController") as! BlogPageViewController
         vc.itemInfo = IndicatorInfo(title:title)
+        
+        var areaName = ""
+        switch(self.storeLocation)
+        {
+        case "201":
+            areaName = "의정부"
+            break
+        case "202":
+            areaName = "동두천"
+            break
+        case "203":
+            areaName = "양주"
+            break
+        case "204":
+            areaName = "포천"
+            break
+        case "205":
+            areaName = "노원"
+            break
+        default:
+            break
+        }
+        let query = areaName + " " + storeTitle
+        
+        vc.query = query
         return vc
     }
     
@@ -98,7 +161,7 @@ extension StoreInfoViewController {
             newView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
             newView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
             newView.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
-            newView.bottomAnchor.constraint(equalTo: bottomMenuLineView.topAnchor).isActive = true
+            newView.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
         } else {
             NSLayoutConstraint(item: newView,
                                attribute: .top,
@@ -119,8 +182,8 @@ extension StoreInfoViewController {
                                constant: 0).isActive = true
             NSLayoutConstraint(item: newView, attribute: .bottom,
                                relatedBy: .equal,
-                               toItem: bottomMenuLineView,
-                               attribute: .top,
+                               toItem: view,
+                               attribute: .bottom,
                                multiplier: 1.0,
                                constant: 0).isActive = true
         }

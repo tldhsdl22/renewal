@@ -15,6 +15,10 @@ class OptionAreaViewController: UIViewController {
     @IBOutlet var btn04: UIButton!
     @IBOutlet var btn05: UIButton!
     @IBOutlet var btn06: UIButton!
+    @IBOutlet var btnApply: UIButton!
+    @IBOutlet var emptyArea: UIView!
+    @IBOutlet var bottomNSLayout: NSLayoutConstraint!
+    @IBOutlet var bottomView: UIView!
     
     var selectedAreaNum:Int = 200
     var selectColor:UIColor?
@@ -22,16 +26,44 @@ class OptionAreaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bottomNSLayout.constant = -(self.view.frame.height - bottomView.bounds.minY)
+
         selectColor = btn01.currentTitleColor
         backColor = btn01.backgroundColor
+        
+        btnApply.layer.cornerRadius = 10
+        btn01.layer.cornerRadius = 10
+        btn02.layer.cornerRadius = 10
+        btn03.layer.cornerRadius = 10
+        btn04.layer.cornerRadius = 10
+        btn05.layer.cornerRadius = 10
+        btn06.layer.cornerRadius = 10
+        
+        addViewClickAction()
     }
     
-    @IBAction func close(_ sender: Any) {
+    override func viewDidAppear(_ animated: Bool) {
+        slideAnimate()
+    }
+
+    
+    func addViewClickAction()
+    {
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(customDismiss))
+        self.emptyArea.addGestureRecognizer(gesture)
+    }
+    
+    @objc func customDismiss()
+    {
+        slideAnimate()
         //self.dismiss(animated: true, completion: nil)
+    }
+
+    
+    @IBAction func close(_ sender: Any) {
+        isApply = true
         
-        
-        
-        self.performSegue(withIdentifier: "unwindToStoreThumbFromOptionAreaViewController", sender: self)
+        slideAnimate()
     }
     @IBAction func clickedBtn01(_ sender: Any) {
         selectBtn(index: 0)
@@ -54,6 +86,36 @@ class OptionAreaViewController: UIViewController {
     @IBAction func clickedBtn06(_ sender: Any) {
         selectBtn(index: 5)
     }
+    
+    var isApply = false
+    
+    func slideAnimate()
+    {
+        if( bottomNSLayout.constant == 0 )
+        {
+            bottomNSLayout.constant = -(self.view.frame.height - bottomView.bounds.minY)
+
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: { (_) in
+                if(self.isApply == true)
+                { self.performSegue(withIdentifier: "unwindToStoreThumbFromOptionAreaViewController", sender: self)
+                }
+                else
+                {
+                    self.dismiss(animated: false, completion: nil)
+                }
+            })
+        }
+        else
+        {
+            bottomNSLayout.constant = 0
+            UIView.animate(withDuration: 0.5, delay:0, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
     
     
     func selectBtn(index:Int)

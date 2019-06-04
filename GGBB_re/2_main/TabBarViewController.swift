@@ -22,7 +22,7 @@ class TabBarController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarHeight = 45
         settings.style.buttonBarBackgroundColor = UIColor.white
         settings.style.buttonBarItemBackgroundColor = UIColor.white
-        settings.style.selectedBarBackgroundColor = Util.AppColor
+        settings.style.selectedBarBackgroundColor = .white
         
         settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 16, weight: .semibold) //UIFont(name: "System-Bold", size:16) ?? UIFont.systemFont(ofSize: 16)
         settings.style.selectedBarHeight = 3.0

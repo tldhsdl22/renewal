@@ -19,6 +19,7 @@ class SignViewController: UIViewController {
     @IBOutlet var btnTerms1: ImageButton!
     @IBOutlet var btnTerms2: ImageButton!
     @IBOutlet var btnSignup: UIButton!
+    @IBOutlet var myScrollView: UIScrollView!
     
     var responseIdCheck: JSONResponse? = nil {
         didSet(oldVal){
@@ -54,13 +55,16 @@ class SignViewController: UIViewController {
         {
             if(newVal == true)
             {
-                btnTerms1.layer.borderColor = UIColor.blue.cgColor
                 btnTerms1.setTitleColor(.blue, for: .normal)
+                btnTerms1.leftHandImage = UIImage(named:"check")
+                btnTerms1.layer.borderColor = UIColor.blue.cgColor
             }
             else
             {
                 btnTerms1.layer.borderColor = UIColor.red.cgColor
-                btnTerms1.setTitleColor(.red, for: .normal)            }
+                btnTerms1.setTitleColor(.red, for: .normal)
+                btnTerms1.leftHandImage = UIImage(named:"36_unchecked_1x")
+            }
         }
     }
     
@@ -73,20 +77,54 @@ class SignViewController: UIViewController {
         {
             if(newVal == true)
             {
-                btnTerms2.layer.borderColor = UIColor.blue.cgColor
                 btnTerms2.setTitleColor(.blue, for: .normal)
+                btnTerms2.leftHandImage = UIImage(named:"check")
+                btnTerms2.layer.borderColor = UIColor.blue.cgColor
+
             }
             else
             {
                 btnTerms2.layer.borderColor = UIColor.red.cgColor
-                btnTerms2.setTitleColor(.red, for: .normal)            }
+                btnTerms2.setTitleColor(.red, for: .normal)
+                btnTerms2.leftHandImage = UIImage(named:"36_unchecked_1x")
+            }
         }
     }
     
-    
+    var orgHeight:CGFloat!
     override func viewDidLoad() {
         super.viewDidLoad()
+        orgHeight = self.view.frame.height
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // touchEvnet
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        myScrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
+    @objc func endEditing()
+    {
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: orgHeight - keyboardSize.height)
+            
+            loadViewIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: orgHeight)
+        loadViewIfNeeded()
+    }
+
     
     
     // 화면 이동 전에 동작하는 함수
@@ -114,7 +152,7 @@ class SignViewController: UIViewController {
         {
             msg = "아이디를 확인하시고 중복확인 버튼을 눌러주세요."
         }
-        else if((inputPw1.text ?? "").count < 6 || (inputPw1.text ?? "").count > 20 && inputPw1.text != inputPw2.text)
+        else if((inputPw1.text ?? "").count < 6 || (inputPw1.text ?? "").count > 20 || inputPw1.text != inputPw2.text)
         {
             msg = "비밀번호를 확인해주세요."
         }
@@ -259,5 +297,35 @@ extension SignViewController: Terms1Delegate, Terms2Delegate
     
     func agreeTerms2(data: String) {
         isTerms2 = true
+    }
+}
+
+extension SignViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if(textField == inputPw1)
+        {
+            inputPw2.becomeFirstResponder()
+        }
+        else if(textField == inputPw2)
+        {
+            inputName.becomeFirstResponder()
+        }
+        else
+        {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textFieldDidBeginEditing")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("textFieldShouldBeginEditing")
+        return true
     }
 }
