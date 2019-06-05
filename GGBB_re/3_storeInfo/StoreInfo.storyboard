@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4a-Gz-gtN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692" y="1332.6836581709147"/>
+            <point key="canvasLocation" x="694" y="1332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="myn-EF-I1l">
@@ -1265,6 +1265,7 @@
                         <outlet property="editorImage" destination="TSn-aW-I4F" id="7ai-Ka-Tju"/>
                         <outlet property="editorReviewArea" destination="bR4-CY-C9B" id="prI-2U-mIP"/>
                         <outlet property="imgCollectionView" destination="Mcl-iT-ey9" id="bA9-7m-Ktv"/>
+                        <outlet property="introLabel" destination="sr9-LU-88W" id="UVG-o3-ymT"/>
                         <outlet property="labelAddress" destination="qQE-56-TMl" id="UGD-JA-0q2"/>
                         <outlet property="labelCoupon" destination="a1O-km-vKW" id="xmx-Wi-iWQ"/>
                         <outlet property="labelEditorReview" destination="ap9-Dq-5ak" id="dar-1c-VcZ"/>

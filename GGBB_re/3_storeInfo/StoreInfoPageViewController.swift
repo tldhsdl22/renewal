@@ -32,6 +32,7 @@ class StoreInfoPageViewController: UIViewController
     @IBOutlet var mapArea: UIView!
     @IBOutlet var callArea: UIView!
     @IBOutlet var recommendArea: UIView!
+    @IBOutlet var introLabel: UILabel!
     
     // 버튼 메뉴
     @IBOutlet var mapBtnView: UIView!
@@ -164,6 +165,7 @@ class StoreInfoPageViewController: UIViewController
             labelLikeCnt.text = storeInfoDetail?.recommend
             labelEditorReview.text = storeInfoDetail?.editor
             labelCoupon.text = storeInfoDetail?.coupon
+            introLabel.text = storeInfoDetail?.intro
             
             // 좋아요 버튼
             print("storeInfoDetail " + (storeInfoDetail?.isRec ?? ""))
@@ -449,7 +451,6 @@ class StoreInfoPageViewController: UIViewController
         }
 
     }
-    
     
     @objc private func showMap()
     {

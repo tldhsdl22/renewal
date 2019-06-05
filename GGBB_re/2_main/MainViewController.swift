@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         
         // 탭바 뷰
         let newView = pageTabBarVC.view!
-        newView.backgroundColor = .red
+        newView.backgroundColor = .white
         self.view.addSubview(newView)
         setAnchorToSafeArea(newView)
         self.addChild(pageTabBarVC)

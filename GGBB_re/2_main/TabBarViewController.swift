@@ -14,6 +14,7 @@ class TabBarController: ButtonBarPagerTabStripViewController {
     
     override func viewDidLoad() {
         prepareTabBar()
+        self.view.backgroundColor = .white
         
         super.viewDidLoad()
     }
