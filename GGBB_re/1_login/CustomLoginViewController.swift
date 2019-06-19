@@ -32,7 +32,7 @@ class CustomLoginViewController: UIViewController
     var orgHeight:CGFloat = 0
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
             self.view.layoutIfNeeded()
             self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.orgHeight - keyboardSize.height)
@@ -73,7 +73,6 @@ class CustomLoginViewController: UIViewController
                             let classObj = try JSONDecoder().decode(ResultLogin.self, from: jsonObj)
                             if(classObj.result != nil && classObj.result == "success")
                             {
-                                
                                 // 데이터 저장
                                 UserInfo.setUserInfo(loginInfo: classObj)
                                 

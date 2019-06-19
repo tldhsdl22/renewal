@@ -74,7 +74,7 @@ class StoreReviewViewController: UIViewController
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
             self.view.layoutIfNeeded()
             self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.orgHeight - keyboardSize.height)
@@ -136,6 +136,15 @@ class StoreReviewViewController: UIViewController
         self.sendBtn.isEnabled = false
         
         let kakaoId = UserInfo.getUserId() ?? ""
+        if kakaoId == ""
+        {
+            let alert = UIAlertController(title: "사용 불가", message: "로그인 후 사용할 수 있는 기능입니다.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            self.sendBtn.isEnabled = true
+            return
+        }
+        
         let serviceType = "10" // 댓글 서비스는 10번
         let review = self.reviewField.text
         let param = ["kakaoID":kakaoId , "serviceType":serviceType , "storeNum":self.num  ?? "", "type":self.type  ?? "", "review":review ?? ""] as [String:Any]

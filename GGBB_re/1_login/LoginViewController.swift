@@ -96,16 +96,57 @@ class LoginViewController: UIViewController {
                             print("nickname: \(String(describing: me.nickname))")
                             print("imgUrl: \(String(describing: me.thumbnailImageURL))")
                             
-                            // 유저 정보 저장
-                            UserInfo.setUserInfo(userId: me.id, name: me.nickname, thumb: me.thumbnailImageURL?.absoluteString)
+                            var params = Dictionary<String, Any>()
+                            params["kakaoID"] = String(describing: me.id ?? "")
+                            params["userName"] = me.nickname ?? ""
+                            params["profileUrl"] = me.thumbnailImageURL ?? ""
+                            let url = "http://www.iloveggbb.com/app/login/login.php"
                             
-                            // 정상적인 값이면 페이지 이동
-                            if(UserInfo.getUserName() != nil)
-                            {
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
-                                self.show(vc, sender: nil)
-                            }
+                            Alamofire.request(url, method: .post, parameters: params, encoding:  URLEncoding(destination: .queryString)).responseJSON(
+                                completionHandler: { (response) in
+                                    switch(response.result)
+                                    {
+                                    case .success(let data):
+                                        print(data)
+                                        if let _ = data as? NSDictionary
+                                        {
+                                            do
+                                            {
+                                                let jsonObj = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+                                                let classObj = try JSONDecoder().decode(ResultSNSLogin.self, from: jsonObj)
+                                                if(classObj.result != nil && classObj.result == "success")
+                                                {
+                                                    // 유저 정보 저장
+                                                    UserInfo.setUserInfo(userId: me.id, name: me.nickname, thumb: me.thumbnailImageURL?.absoluteString)
+                                                    
+                                                    // 정상적인 값이면 페이지 이동
+                                                    if(UserInfo.getUserName() != nil)
+                                                    {
+                                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                        let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+                                                        self.show(vc, sender: nil)
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    let alert = UIAlertController(title: "가입 실패", message: classObj.message, preferredStyle: UIAlertController.Style.alert)
+                                                    alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+                                                    self.present(alert, animated: true, completion: nil)
+                                                }
+                                            }
+                                            catch
+                                            {
+                                                print(error.localizedDescription)
+                                            }
+                                        }
+                                        break
+                                    case .failure(let _):
+                                        break
+                                    default:
+                                        break
+                                    }
+                            })
+
 
                         } else {
                             print("has no id")
@@ -136,13 +177,58 @@ class LoginViewController: UIViewController {
                     let thumb = profile?.imageURL(forMode: .normal, size: CGSize(width: 300, height: 300))
                     UserInfo.setUserInfo(userId: profile?.userID, name: profile?.name, thumb: thumb?.absoluteString)
                     
-                    // 페이지 이동
-                    if(UserInfo.getUserName() != nil)
-                    {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
-                        self.show(vc, sender: nil)
-                    }
+                    var params = Dictionary<String, Any>()
+                    params["kakaoID"] = String(describing: profile?.userID ?? "")
+                    params["userName"] = profile?.name ?? ""
+                    params["profileUrl"] = thumb?.absoluteString ?? ""
+                    let url = "http://www.iloveggbb.com/app/login/login.php"
+                    
+                    Alamofire.request(url, method: .post, parameters: params, encoding:  URLEncoding(destination: .queryString)).responseJSON(
+                        completionHandler: { (response) in
+                            switch(response.result)
+                            {
+                            case .success(let data):
+                                print(data)
+                                if let _ = data as? NSDictionary
+                                {
+                                    do
+                                    {
+                                        let jsonObj = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+                                        let classObj = try JSONDecoder().decode(ResultSNSLogin.self, from: jsonObj)
+                                        if(classObj.result != nil && classObj.result == "success")
+                                        {
+                                            // 유저 정보 저장
+                                            UserInfo.setUserInfo(userId: profile?.userID, name: profile?.name, thumb: thumb?.absoluteString)
+                                            
+                                            // 페이지 이동
+                                            if(UserInfo.getUserName() != nil)
+                                            {
+                                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
+                                                self.show(vc, sender: nil)
+                                            }                                        }
+                                        else
+                                        {
+                                            let alert = UIAlertController(title: "가입 실패", message: classObj.message, preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+                                            self.present(alert, animated: true, completion: nil)
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                                break
+                            case .failure(let _):
+                                break
+                            default:
+                                break
+                            }
+                    })
+                    
+                    
+                    
                 })
             }
         }
@@ -153,7 +239,6 @@ class LoginViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "mainNav")
         self.show(vc, sender: nil)
     }
-    
     
     @IBAction func unwindToLogin(_ segue: UIStoryboardSegue){
         print("success logout")

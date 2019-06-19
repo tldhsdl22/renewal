@@ -166,6 +166,10 @@ class StoreInfoPageViewController: UIViewController
             labelEditorReview.text = storeInfoDetail?.editor
             labelCoupon.text = storeInfoDetail?.coupon
             introLabel.text = storeInfoDetail?.intro
+            labelAddress.text = storeInfoDetail?.addr
+            labelOpenTime.text = storeInfoDetail?.open
+            labelHoliday.text = storeInfoDetail?.holiday
+            labelParking.text = storeInfoDetail?.parking
             
             // 좋아요 버튼
             print("storeInfoDetail " + (storeInfoDetail?.isRec ?? ""))
@@ -597,6 +601,15 @@ class StoreInfoPageViewController: UIViewController
         self.sendBtn.isEnabled = false
         
         let kakaoId = UserInfo.getUserId() ?? ""
+        if kakaoId == ""
+        {
+            let alert = UIAlertController(title: "사용 불가", message: "로그인 후 사용할 수 있는 기능입니다.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            self.sendBtn.isEnabled = true
+            return
+        }
+        
         let serviceType = "10" // 댓글 서비스는 10번
         let review = self.reviewField.text
         let param = ["kakaoID":kakaoId , "serviceType":serviceType , "storeNum":self.storeNum  ?? "", "type":self.storeType  ?? "", "review":review ?? ""] as [String:Any]

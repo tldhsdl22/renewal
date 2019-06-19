@@ -60,7 +60,7 @@ class RequestViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width, height: orgHeight - keyboardSize.height)
             
             loadViewIfNeeded()

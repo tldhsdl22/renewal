@@ -109,6 +109,20 @@ class ResultLogin: Codable
     var gender: String?
 }
 
+
+class ResultSNSLogin: Codable
+{
+    var result: String?
+    var message: String?
+    var kakaoID: String?
+    var userName: String?
+    var userAge: String?
+    var userRegion: String?
+    var userGender: String?
+    var userProfileImageUrl: String?
+    var signDate: String?
+}
+
 class StoreInfoDetail: Codable
 {
     var isRec: String?
