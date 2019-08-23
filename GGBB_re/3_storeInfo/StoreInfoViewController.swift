@@ -12,6 +12,8 @@ import Alamofire
 
 class StoreInfoViewController:UIViewController
 {
+    @IBOutlet var containerView: UIView!
+    
     fileprivate var pagesVC: [UIViewController]!
     fileprivate var pageTabBarVC : TabBarController!
     var titleList: [String] = ["정보", "가격", "블로그"]
@@ -166,23 +168,24 @@ extension StoreInfoViewController {
             NSLayoutConstraint(item: newView,
                                attribute: .top,
                                relatedBy: .equal,
-                               toItem: view, attribute: .top,
+                               toItem: containerView, attribute: .top,
                                multiplier: 1.0, constant: 0).isActive = true
             NSLayoutConstraint(item: newView,
                                attribute: .leading,
-                               relatedBy: .equal, toItem: view,
+                               relatedBy: .equal,
+                               toItem: containerView,
                                attribute: .leading,
                                multiplier: 1.0,
                                constant: 0).isActive = true
             NSLayoutConstraint(item: newView, attribute: .trailing,
                                relatedBy: .equal,
-                               toItem: view,
+                               toItem: containerView,
                                attribute: .trailing,
                                multiplier: 1.0,
                                constant: 0).isActive = true
             NSLayoutConstraint(item: newView, attribute: .bottom,
                                relatedBy: .equal,
-                               toItem: view,
+                               toItem: containerView,
                                attribute: .bottom,
                                multiplier: 1.0,
                                constant: 0).isActive = true

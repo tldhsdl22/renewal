@@ -44,7 +44,6 @@ class SideMenuViewController: UIViewController
         scrapView?.isUserInteractionEnabled = true
         scrapView?.addGestureRecognizer(scrap_gesture)
         
-        
         // 문의하기 이동
         let request_gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goRequest))
         request_gesture.numberOfTapsRequired = 1

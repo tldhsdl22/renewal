@@ -31,14 +31,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb114413382441801</string>
+				<string>fb249050695547587</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>21</string>
 	<key>FacebookAppID</key>
-	<string>114413382441801</string>
+	<string>249050695547587</string>
 	<key>FacebookDisplayName</key>
 	<string>응답하라경기북부</string>
 	<key>KAKAO_APP_KEY</key>
@@ -195,11 +195,11 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

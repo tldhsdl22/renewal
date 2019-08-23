@@ -41,7 +41,6 @@ class SearchStoreViewController: UIViewController
     }
     
     
-    
     private func getStoreInfo(query:String)
     {
         let kakaoId = UserInfo.getUserId() ?? ""

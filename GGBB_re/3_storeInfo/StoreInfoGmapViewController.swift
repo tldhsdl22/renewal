@@ -15,6 +15,7 @@ class StoreInfoGmapViewController:UIViewController
 {
     @IBOutlet var mapView: UIView!
     @IBOutlet var storeCollectionView: UICollectionView!
+    @IBOutlet var myLocationBtn: UIButton!
     var storeType = ""
     var storeNum = ""
     
@@ -134,6 +135,7 @@ class StoreInfoGmapViewController:UIViewController
         Util.setAnchor(baseView: mapView, newView: gMapView)
         
         self.gMapView.delegate = self
+        self.view.bringSubviewToFront(myLocationBtn)
     }
     
     private func clearMarkers() {
@@ -211,6 +213,12 @@ class StoreInfoGmapViewController:UIViewController
                 self.gMapView?.animate(to: camera)
         }
     }
+    
+    @IBAction func goMyLocation(_ sender: Any) {
+        goMyLocation()
+        print("gogoMyLocation")
+    }
+
 }
 
 extension StoreInfoGmapViewController:UICollectionViewDataSource, UICollectionViewDelegateFlowLayout

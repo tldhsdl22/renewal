@@ -223,11 +223,11 @@ extension OptionFilterViewController: UICollectionViewDataSource, UICollectionVi
             cell.backView.backgroundColor = UIColor.groupTableViewBackground
             if(arrKindName?.contains("한식") ?? false)
             {
-                cell.imageView.image = UIImage(named: arrKindSelectedImg[indexPath.row])
+                cell.imageView.image = UIImage(named: arrKindImg[indexPath.row])
             }
             else if(arrKindName?.contains("호텔") ?? false)
             {
-                cell.imageView.image = UIImage(named: arrKindSelectedImg_sleep[indexPath.row])
+                cell.imageView.image = UIImage(named: arrKindImg_sleep[indexPath.row])
             }
 
             cell.nameLabel.textColor = UIColor.lightGray
